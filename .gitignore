@@ -4,6 +4,9 @@
 *.so
 *.dylib
 
+# go api binary
+myapi
+
 # Test binaries
 *_test
 
