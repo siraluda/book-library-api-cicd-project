@@ -1,4 +1,4 @@
-name: Code quality and static analysis
+name: Code quality
 
 on:
   push:

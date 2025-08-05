@@ -26,3 +26,17 @@ func (app application) GetBookHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
+func (app application) GetBooksHandler(w http.ResponseWriter, r *http.Request)  {
+	books, err := app.models.Books.GetAll()
+	if err != nil {
+		app.notFoundResponse(w,r)
+		return
+	}
+
+	err = app.writeJSON(w,r,http.StatusOK, envelope{"books": books}, nil)
+	if err != nil {
+		app.serverErrorResponse(w,r,err)
+		return
+	}
+}
